@@ -12,7 +12,7 @@ for r in range (10000) :
     random_walk = [0]
 
     # loop for creating each step in a random_walk
-    for i in range(1000) :
+    for i in range(100) :
         step = random_walk[-1]
 
         # Roll the dice
@@ -39,7 +39,8 @@ for r in range (10000) :
 
 
 # the number of times a random_walk ended on step 60 or above
-bet = len(sorted([x for x in last_step if x >= 60]))
+bet = len(list(filter(lambda a: a >= 60, last_step)))
+#bet = len(sorted([x for x in last_step if x >= 60]))
 
 prob = bet/10000*100
 
