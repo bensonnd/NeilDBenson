@@ -1,0 +1,50 @@
+import numpy as np
+import matplotlib.pyplot as plt
+# Set the seed
+np.random.seed(123)
+
+# Initialize random_walk
+
+last_step = []
+
+# loop for creating each random_walk
+for r in range (10000) :
+    random_walk = [0]
+
+    # loop for creating each step in a random_walk
+    for i in range(1000) :
+        step = random_walk[-1]
+
+        # Roll the dice
+        dice = np.random.randint(1, 7)
+
+        # Determine next step
+        if dice <= 2 :
+            step = max(0, step - 1)
+        elif dice < 4 :
+            step = step + 1
+        else :
+            step = step + np.random.randint(1,7)
+        if np.random.rand() <= .001 :
+            step = 0
+
+       # append each next step to random_walk
+        random_walk.append(step)
+
+    # adds the last step for each random_walk to the last_step list
+    last_step.append(random_walk[-1])
+
+    #print(random_walk)
+#print(sorted(last_step))
+
+
+# the number of times a random_walk ended on step 60 or above
+bet = len(sorted([x for x in last_step if x >= 60]))
+
+prob = bet/10000*100
+
+print(str(prob) + "%")
+
+plt.hist(last_step, bins = 30)
+plt.show()
+
