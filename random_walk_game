@@ -6,9 +6,10 @@ np.random.seed(123)
 # Initialize random_walk
 
 last_step = []
+num_random_walks = 1000
 
 # loop for creating each random_walk
-for r in range (10000) :
+for r in range (num_random_walks) :
     random_walk = [0]
 
     # loop for creating each step in a random_walk
@@ -42,7 +43,7 @@ for r in range (10000) :
 bet = len(list(filter(lambda a: a >= 60, last_step)))
 #bet = len(sorted([x for x in last_step if x >= 60]))
 
-prob = bet/10000*100
+prob = bet/num_random_walks * 100
 
 print(str(prob) + "%")
 
