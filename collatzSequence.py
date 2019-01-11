@@ -8,11 +8,19 @@ def collatz(number):
     return spam
 
 
-print('Enter a number:')
-numberEntered = int(input())
+
 collatzNumber = 0
+
+print('Enter a number:')
+while True:
+    try:
+        numberEntered = int(input())
+        break
+    except ValueError:
+        print("Enter a valid number - please try again ...")
+
 while collatzNumber != 1:
-    #This will loop through the number entered until it reaches 1. It always reaches 1. 
+    #This will loop through the number entered until it reaches 1. It always reaches 1.
     collatzNumber = collatz(numberEntered)
     print(collatzNumber)
     numberEntered = collatzNumber
