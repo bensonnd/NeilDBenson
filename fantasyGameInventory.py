@@ -21,9 +21,9 @@ dragonLoot = ['gold coin', 'dagger', 'torch', 'gold coin', 'ruby', 'rope', 'rope
 
 def addToInventory(inventory, addedItems):
     """Adds new found item's to user's existing inventory."""
-    for i in addedItems:
-        inventory.setdefault(i,0) #if the item doesn't exist add to dict and set value to 0
-        inventory[i] = inventory.get(i,0) + 1 #increment each item in dict by 1
+    for i in addedItems: #iterates through the list of new found items.
+        inventory.setdefault(i,0) #if new item doesn't exist add to dict and set value to 0
+        inventory[i] += 1 #increment each item (new and existing) in dict by 1
     return inventory
 
 stuff = addToInventory(stuff,dragonLoot)
