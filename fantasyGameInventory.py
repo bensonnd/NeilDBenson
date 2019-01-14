@@ -4,7 +4,7 @@ def displayInventory(inventory):
     """This function displays the user's existing inventory"""
     print('Inventory:')
     item_total = 0
-    for k, v in inventory.items():
+    for k, v in inventory.items(): #loop through each key value pair in the dict
         item_total = item_total + v
         if v > 1 and (k[-1] in ['s', 'x'] or k[-2:] in ['ch', 'sh']): #pluralize keys greater than 1
             print(str(v) + ' ' + str(k) + 'es')
